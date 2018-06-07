@@ -66,6 +66,7 @@ const withSideEffect = (handlers) => {
   let errorHandlerType = ''
 
   beforeHandler[symbioteSecret.getActionCreator] = (beforeHandlerType) =>
+    // FIXME: promise
     (sideEffect, ...args) => async (dispatch, getState, extraArgument) => {
       dispatch({ type: beforeHandlerType, payload: args })
       try {
